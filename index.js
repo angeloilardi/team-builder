@@ -12,6 +12,14 @@ const render = require("./src/page-template.js");
 
 const team = [];
 
+//validation for email address, found help on this page https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation
+const validateEmail = email => {
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(email)) {
+        return 'Please enter a valid email address'
+    } return true;
+
+};
+
 
 inquirer
     .prompt([
@@ -29,6 +37,8 @@ inquirer
             type: "iput",
             message: "What is the team manager's email?",
             name: "managerEmail",
+            validate: validateEmail
+            
         },
         {
             type: "iput",
