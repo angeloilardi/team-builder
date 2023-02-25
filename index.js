@@ -20,6 +20,20 @@ const validateEmail = email => {
 
 };
 
+const validateNumber = number => {
+    if (isNaN(number)) {
+        return "Enter a valid number"
+    }
+    return true
+};
+
+const validateString = string => {
+    if (!string.trim().length) {
+        return "Please make sure you enter a value"
+    }
+    return true
+}
+
 
 inquirer
     .prompt([
@@ -27,23 +41,26 @@ inquirer
             type: "iput",
             message: "What is the team manager's name?",
             name: "managerName",
+            validate: validateString
         },
         {
-            type: "iput",
+            type: "input",
             message: "What is the team manager's id?",
             name: "managerId",
+            validate: validateNumber
         },
         {
             type: "iput",
             message: "What is the team manager's email?",
             name: "managerEmail",
             validate: validateEmail
-            
+
         },
         {
-            type: "iput",
+            type: "number",
             message: "What is the team manager's office number?",
             name: "managerOfficeNumber",
+            validate: validateNumber
         },
     ]).then(response => {
         const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.managerOfficeNumber);
@@ -88,21 +105,25 @@ const addEngineerPrompt = () => {
                 type: "iput",
                 message: "What is the engineer's name?",
                 name: "engineerName",
+                validate: validateString
             },
             {
                 type: "iput",
                 message: "What is the engineer's id?",
                 name: "engineerId",
+                validate: validateNumber
             },
             {
                 type: "iput",
                 message: "What is the engineer's email?",
                 name: "engineerEmail",
+                validate: validateEmail
             },
             {
                 type: "iput",
                 message: "What is the engineer's GitHub username?",
                 name: "engineerGithub",
+                validate: validateString
             },
         ]).then(response => {
             const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub);
@@ -118,21 +139,25 @@ const addInternPrompt = () => {
                 type: "iput",
                 message: "What is the intern's name?",
                 name: "internName",
+                validate: validateString
             },
             {
                 type: "iput",
                 message: "What is the intern's id?",
                 name: "internId",
+                validate: validateNumber
             },
             {
                 type: "iput",
                 message: "What is the intern's email?",
                 name: "internEmail",
+                validate: validateEmail
             },
             {
                 type: "iput",
                 message: "What is the intern's school?",
                 name: "internSchool",
+                validate: validateString
             },
         ]).then(response => {
             const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool);
