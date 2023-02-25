@@ -20,6 +20,7 @@ const validateEmail = email => {
 
 };
 
+// validation for numbers
 const validateNumber = number => {
     if (isNaN(number)) {
         return "Enter a valid number"
@@ -27,6 +28,7 @@ const validateNumber = number => {
     return true
 };
 
+// validation for empty strings
 const validateString = string => {
     if (!string.trim().length) {
         return "Please make sure you enter a value"
@@ -34,7 +36,7 @@ const validateString = string => {
     return true
 }
 
-
+// manager's questions prompts
 inquirer
     .prompt([
         {
@@ -68,6 +70,7 @@ inquirer
         promptForNextEmployee();
     })
 
+    // add employee choice prompt
 const promptForNextEmployee = () => {
     inquirer
         .prompt([
@@ -98,6 +101,7 @@ const promptForNextEmployee = () => {
         })
 };
 
+// engineer's questions prompts
 const addEngineerPrompt = () => {
     inquirer
         .prompt([
@@ -132,6 +136,7 @@ const addEngineerPrompt = () => {
         })
 };
 
+// intern's questions prompts
 const addInternPrompt = () => {
     inquirer
         .prompt([
