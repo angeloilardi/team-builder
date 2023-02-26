@@ -59,7 +59,7 @@ inquirer
 
         },
         {
-            type: "number",
+            type: "input",
             message: "What is the team manager's office number?",
             name: "managerOfficeNumber",
             validate: validateNumber
@@ -106,25 +106,25 @@ const addEngineerPrompt = () => {
     inquirer
         .prompt([
             {
-                type: "iput",
+                type: "input",
                 message: "What is the engineer's name?",
                 name: "engineerName",
                 validate: validateString
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the engineer's id?",
                 name: "engineerId",
                 validate: validateNumber
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the engineer's email?",
                 name: "engineerEmail",
                 validate: validateEmail
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the engineer's GitHub username?",
                 name: "engineerGithub",
                 validate: validateString
@@ -141,25 +141,25 @@ const addInternPrompt = () => {
     inquirer
         .prompt([
             {
-                type: "iput",
+                type: "input",
                 message: "What is the intern's name?",
                 name: "internName",
                 validate: validateString
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the intern's id?",
                 name: "internId",
                 validate: validateNumber
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the intern's email?",
                 name: "internEmail",
                 validate: validateEmail
             },
             {
-                type: "iput",
+                type: "input",
                 message: "What is the intern's school?",
                 name: "internSchool",
                 validate: validateString
