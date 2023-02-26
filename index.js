@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
+// initializes the array containing objects for the employees
 const team = [];
 
 //validation for email address, found help on this page https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation
@@ -70,14 +71,14 @@ inquirer
         promptForNextEmployee();
     })
 
-    // add employee choice prompt
+// add employee choice prompt
 const promptForNextEmployee = () => {
     inquirer
         .prompt([
             {
                 type: "list",
                 message: "Would you like to add another employee? If so, please choose type:",
-                choices: ["Engineer", "Intern", "I don't want to add another employee"],
+                choices: ["Engineer", "Intern", "No, I don't want to add another employee"],
                 name: "addEmployee"
             },
         ]).then(response => {
@@ -88,8 +89,9 @@ const promptForNextEmployee = () => {
                 case "Intern":
                     addInternPrompt();
                     break;
-                case "I don't want to add another employee":
+                case "No, I don't want to add another employee":
                     console.log('Your web page will be created now, please look for the team.html file in the output folder');
+                    // creates output folder it it doesn't exist
                     if (!fs.existsSync(OUTPUT_DIR)) {
                         fs.mkdirSync(OUTPUT_DIR);
                     };
