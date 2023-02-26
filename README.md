@@ -29,7 +29,7 @@ Once there are no team memebers left to enter, a web page displaying all of the 
 
 Look for the 'index.html' file located in the 'output' folder. 
 
-If you'd like to have a look at what the page looks like, check the file in the sample folder or cli.
+If you'd like to have a look at what the page looks like, check the file in the sample folder or click [here](./sample/team.html).
 
 ## License
 
